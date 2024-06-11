@@ -4,17 +4,73 @@
   
   
   <entry>
-    <title>关于hexo插入图片的问题</title>
-    <link href="/2024/06/10/%E5%85%B3%E4%BA%8Ehexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-    <url>/2024/06/10/%E5%85%B3%E4%BA%8Ehexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <title>hexo测试文章1</title>
+    <link href="/2024/06/12/hexo%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A01/"/>
+    <url>/2024/06/12/hexo%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A01/</url>
     
-    <content type="html"><![CDATA[<h1 id="演示插入图片"><a href="#演示插入图片" class="headerlink" title="演示插入图片"></a>演示插入图片</h1><p>演示插入图片</p><p><img src="demo.jpg"><br><img src="demo.jpg"><br><img src="demo.jpg"><br><img src="demo.jpg"><br><img src="demo.jpg"><br><img src="demo.jpg"><br><img src="demo.jpg"><br><img src="demo.jpg"><br><img src="demo.jpg"><br><img src="demo.jpg"><br><img src="demo.jpg"><br><img src="demo.jpg"><br><img src="demo.jpg"><br><img src="demo.jpg"><br><img src="demo.jpg"></p><h1 id="测试github-action"><a href="#测试github-action" class="headerlink" title="测试github action"></a>测试github action</h1><p>测试新功能,使用github action。</p><p>尝试使用。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="演示插入图片"><a href="#演示插入图片" class="headerlink" title="演示插入图片"></a>演示插入图片</h1><p>演示插入图片</p><p><img src="demo.jpg" alt="aaa"><br><img src="demo.jpg"><br><img src="demo.jpg"><br><img src="demo.jpg"><br><img src="demo.jpg"><br><img src="demo.jpg"><br><img src="demo.jpg"><br><img src="demo.jpg"><br><img src="demo.jpg"><br><img src="demo.jpg"><br><img src="demo.jpg"><br><img src="demo.jpg"><br><img src="demo.jpg"><br><img src="demo.jpg"><br><img src="demo.jpg"></p><h1 id="测试github-action"><a href="#测试github-action" class="headerlink" title="测试github action"></a>测试github action</h1><p>测试新功能,使用github action。</p><pre><code class="mermaid" >ganttdateFormat  YYYY-MM-DDtitle Adding GANTT diagram to mermaidsection A sectionCompleted task            :done,    des1, 2014-01-06,2014-01-08Active task               :active,  des2, 2014-01-09, 3dFuture task               :         des3, after des2, 5dFuture task2               :         des4, after des3, 5d</code></pre>]]></content>
     
+    
+    <categories>
+      
+      <category>零散</category>
+      
+    </categories>
     
     
     <tags>
       
       <tag>blog搭建</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>常用软件和资源</title>
+    <link href="/2024/06/11/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6%E5%92%8C%E8%B5%84%E6%BA%90/"/>
+    <url>/2024/06/11/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6%E5%92%8C%E8%B5%84%E6%BA%90/</url>
+    
+    <content type="html"><![CDATA[<h1 id="常用软件"><a href="#常用软件" class="headerlink" title="常用软件"></a>常用软件</h1><h2 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h2><ul><li><a href="https://gitextensions.github.io/">Git Extension</a></li><li><a href="https://www.keil.com/fid/pw54XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/files/eval/mdk540.exe">keil_V5.40</a> </li><li><a href="http://www.mounriver.com/download">mounriver IDE</a></li></ul><h2 id="常用工具"><a href="#常用工具" class="headerlink" title="常用工具"></a>常用工具</h2><ul><li><a href="https://www.mozilla.org/zh-CN/firefox/all/#product-desktop-release">FireFox</a></li><li><a href="https://doublecmd.sourceforge.io/">DoubleCMD</a></li><li><a href="https://calibre-ebook.com/zh_CN/download">calibre</a></li><li><a href="https://www.voidtools.com/downloads/">EveryThing</a></li><li><a href="https://geekuninstaller.com/">geek</a></li><li><a href="https://sourceforge.net/projects/mpv-player-windows/files/">MPV</a></li><li><a href="https://www.autoitscript.com/autoit3/files/beta/autoit/">autoit</a></li><li><a href="https://winscp.net/eng/download.php">winscp</a></li></ul><h1 id="字体下载"><a href="#字体下载" class="headerlink" title="字体下载"></a>字体下载</h1><ul><li><a href="https://github.com/lxgw/LxgwWenKai">lxgw</a> 中文字体</li><li><a href="https://github.com/ryanoasis/nerd-fonts">nerd-fonts</a> 图标字体</li><li><a href="https://github.com/microsoft/cascadia-code">cascadia-code</a> 微软字体，系统自带</li><li><a href="https://www.jetbrains.com/lp/mono/">jetbrains font</a></li><li><a href="https://github.com/tonsky/FiraCode">FiraCode</a></li><li><a href="https://github.com/adobe-fonts/source-code-pro">source-code</a></li><li><a href="https://github.com/intel/intel-one-mono">intel-one-mono</a></li><li><a href="https://github.com/IBM/plex">IBM plex</a></li><li><a href=""></a></li></ul>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>软件推荐</tag>
+      
+      <tag>软件下载</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Windows常用设置</title>
+    <link href="/2024/06/11/Windows%E5%B8%B8%E7%94%A8%E8%AE%BE%E7%BD%AE/"/>
+    <url>/2024/06/11/Windows%E5%B8%B8%E7%94%A8%E8%AE%BE%E7%BD%AE/</url>
+    
+    <content type="html"><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="官方软件"><a href="#官方软件" class="headerlink" title="官方软件"></a>官方软件</h1><p>远程桌面</p><p>没设置密码导致连接失败，win徽标+R输入<code>wsecpol.msc</code>,然后依次点击本次策略-安全选项，选择<code>账户：使用空密码的本地账户只允许进行控制台登录</code>,将其禁用即可。</p><h1 id="第三方软件"><a href="#第三方软件" class="headerlink" title="第三方软件"></a>第三方软件</h1>]]></content>
+    
+    
+    <categories>
+      
+      <category>电脑设置</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Windows设置</tag>
+      
+      <tag>电脑优化</tag>
+      
+      <tag>电脑常见问题</tag>
       
     </tags>
     
