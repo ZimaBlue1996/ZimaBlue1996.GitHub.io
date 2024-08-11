@@ -1,0 +1,769 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="../../../../img/fluid.png">
+  <link rel="icon" href="../../../../img/Crane_Bird.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="zimablue1996">
+  <meta name="keywords" content="生活 学习 记录">
+  
+    <meta name="description" content="Python 常用脚本CH341A 模块FTDI 模块12345678import ft4222import ft4222.I2CMaster# 需要在命令行使用以下命令，安装库# pip install ft4222# list devicesnbDev &#x3D; ft4222.createDeviceInfoList()for i in range(nbDev):    print(ft4222.g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python语言常用脚本">
+<meta property="og:url" content="https://blog.zimablue.fun/2024/08/11/Python%E8%AF%AD%E8%A8%80%E5%B8%B8%E7%94%A8%E8%84%9A%E6%9C%AC/index.html">
+<meta property="og:site_name" content="思维漫步的生活学习记录">
+<meta property="og:description" content="Python 常用脚本CH341A 模块FTDI 模块12345678import ft4222import ft4222.I2CMaster# 需要在命令行使用以下命令，安装库# pip install ft4222# list devicesnbDev &#x3D; ft4222.createDeviceInfoList()for i in range(nbDev):    print(ft4222.g">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-08-11T12:15:33.000Z">
+<meta property="article:modified_time" content="2024-08-11T16:43:03.231Z">
+<meta property="article:author" content="zimablue1996">
+<meta property="article:tag" content="硬件模块">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="编程语言">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Python语言常用脚本 - 思维漫步的生活学习记录</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="../../../../css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="../../../../css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="../../../../css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"blog.zimablue.fun","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="../../../../js/utils.js" ></script>
+  <script  src="../../../../js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="../../../../index.html">
+      <strong>思维漫步</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../../../../index.html" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../../../../archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../../../../categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../../../../tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../../../../about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('../../../../img/colour-1241879_1920.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Python语言常用脚本"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-08-11 20:15" pubdate>
+          2024年8月11日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          20 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Python语言常用脚本</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2024年8月12日 凌晨
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Python-常用脚本"><a href="#Python-常用脚本" class="headerlink" title="Python 常用脚本"></a>Python 常用脚本</h1><h2 id="CH341A-模块"><a href="#CH341A-模块" class="headerlink" title="CH341A 模块"></a>CH341A 模块</h2><h2 id="FTDI-模块"><a href="#FTDI-模块" class="headerlink" title="FTDI 模块"></a>FTDI 模块</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> ft4222<br><span class="hljs-keyword">import</span> ft4222.I2CMaster<br><span class="hljs-comment"># 需要在命令行使用以下命令，安装库</span><br><span class="hljs-comment"># pip install ft4222</span><br><span class="hljs-comment"># list devices</span><br>nbDev = ft4222.createDeviceInfoList()<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(nbDev):<br>    <span class="hljs-built_in">print</span>(ft4222.getDeviceInfoDetail(i, <span class="hljs-literal">False</span>))<br></code></pre></td></tr></table></figure>
+
+
+<h1 id="python-venv"><a href="#python-venv" class="headerlink" title="python venv"></a>python venv</h1><p>这是 Python 自带的包管理器，下面介绍常用命令。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 创建环境</span><br>python -m venv /path/to/your/venv<br><span class="hljs-comment"># 激活环境 Windows</span><br>/path/to/your/venv/Scripts/activate<br><span class="hljs-comment"># 激活环境 Linux</span><br><span class="hljs-built_in">source</span> /path/to/your/venv/bin/activate<br><span class="hljs-comment"># 退出环境</span><br>deactivate<br></code></pre></td></tr></table></figure>
+
+<h1 id="pip-set"><a href="#pip-set" class="headerlink" title="pip set"></a>pip set</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 导出包</span><br>pip freeze &gt; requirements.txt<br><span class="hljs-comment"># 导入包</span><br>pip install -r requirements.txt<br><span class="hljs-comment"># pip 安装到指定路径</span><br>pip install package_name -t /path/to/your/directory<br></code></pre></td></tr></table></figure>
+
+<h1 id="pip-package-list"><a href="#pip-package-list" class="headerlink" title="pip package list"></a>pip package list</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install vcdvcd<br>pip install python-lsp-server<br></code></pre></td></tr></table></figure>
+
+<p>文档</p>
+<p><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/download.html">https://docs.python.org/zh-cn/3/download.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://peps.python.org/">https://peps.python.org/</a></p>
+<h1 id="LearnPython"><a href="#LearnPython" class="headerlink" title="LearnPython"></a>LearnPython</h1><h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install pyelftools PySimpleGUI lxml numpy chardet scipy matplotlib<br>pip install pyvisa pandas shutil<br>pip install shutil openpyxl<br><br></code></pre></td></tr></table></figure>
+
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-comment"># 用来暂停</span><br>os.system(<span class="hljs-string">&quot;pause&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<h2 id="打包应用"><a href="#打包应用" class="headerlink" title="打包应用"></a>打包应用</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># -F 表示 打包为单个文件</span><br><span class="hljs-comment"># -w 表示为没有控制台</span><br><span class="hljs-comment"># -i .\favicon.ico 添加应用图标</span><br>pyinstaller.exe -F -w -i .\favicon.ico .\test.py<br></code></pre></td></tr></table></figure>
+
+<h1 id="wav-250"><a href="#wav-250" class="headerlink" title="wav 250"></a>wav 250</h1><p>import wave<br>import math<br>import array</p>
+<h1 id="音频参数"><a href="#音频参数" class="headerlink" title="音频参数"></a>音频参数</h1><p>sample_rate &#x3D; 44100 # 采样频率<br>duration &#x3D; 60*10 # 音频时长（秒）</p>
+<h1 id="创建一个新的-WAV-文件"><a href="#创建一个新的-WAV-文件" class="headerlink" title="创建一个新的 WAV 文件"></a>创建一个新的 WAV 文件</h1><p>output_file &#x3D; wave.open(‘output.wav’, ‘w’)<br>output_file.setnchannels(1) # 单声道<br>output_file.setsampwidth(2) # 2 字节，16 位<br>output_file.setframerate(sample_rate)</p>
+<h1 id="生成-250Hz-的音频数据"><a href="#生成-250Hz-的音频数据" class="headerlink" title="生成 250Hz 的音频数据"></a>生成 250Hz 的音频数据</h1><p>samples &#x3D; array.array(‘h’, [0] _ (sample_rate _ duration))<br>amplitude &#x3D; 2 ** 15 - 1 # 振幅</p>
+<p>for i in range(len(samples)):<br>t &#x3D; float(i) &#x2F; sample*rate # 当前时间（秒）<br>samples[i] &#x3D; int(amplitude * math.sin(2 _ math.pi _ 250 _ t))</p>
+<h1 id="将音频数据写入-WAV-文件"><a href="#将音频数据写入-WAV-文件" class="headerlink" title="将音频数据写入 WAV 文件"></a>将音频数据写入 WAV 文件</h1><p>output_file.writeframes(samples)</p>
+<h1 id="关闭-WAV-文件"><a href="#关闭-WAV-文件" class="headerlink" title="关闭 WAV 文件"></a>关闭 WAV 文件</h1><p>output_file.close()</p>
+<p>import numpy as np<br>from scipy.io import wavfile<br>import wave</p>
+<p>def generate<em>sine_wave(freq, duration, filename): # 采样率<br>sample_rate &#x3D; 44100 # 生成时间轴<br>t &#x3D; np.linspace(0, duration, int(duration * sample</em>rate), endpoint&#x3D;False) # 生成正弦波信号<br>wave_data &#x3D; np.sin(2 * np.pi _ freq _ t) # 将信号归一化到 16 位范围内<br>wave_data_normalized &#x3D; (wave_data * 32767).astype(np.int16)</p>
+<pre><code class="hljs"># 创建并保存wav文件
+with wave.open(filename, &#39;wb&#39;) as wav_file:
+    wav_file.setnchannels(1)  # 设置为单声道
+    wav_file.setsampwidth(2)  # 设置采样大小为2字节（16位）
+    wav_file.setframerate(sample_rate)  # 设置采样率
+    wav_file.writeframes(wave_data_normalized.tobytes())
+</code></pre>
+<h1 id="示例：生成-1000Hz-频率，持续-2-秒的正弦波-wav-文件"><a href="#示例：生成-1000Hz-频率，持续-2-秒的正弦波-wav-文件" class="headerlink" title="示例：生成 1000Hz 频率，持续 2 秒的正弦波 wav 文件"></a>示例：生成 1000Hz 频率，持续 2 秒的正弦波 wav 文件</h1><p>generate_sine_wave(1000, 2, “sine_wave.wav”)</p>
+<h1 id="Excel"><a href="#Excel" class="headerlink" title="Excel"></a>Excel</h1><p>import as xl<br>workbook &#x3D; xl.load_workbook(filename&#x3D;”D:\Documents\aa.xlsx”)<br>workbook.sheetnames</p>
+<h1 id="pip"><a href="#pip" class="headerlink" title="pip"></a>pip</h1><p>方法一： 打开网址,<a target="_blank" rel="noopener" href="https://pypi.org/project/pip/#files">https://pypi.org/project/pip/#files</a></p>
+<p>然后下载源码，解压，打开命令行，输入命令<code>python setup.py install</code></p>
+<p>输入<code>pip --version</code>，查看是否安装成功</p>
+<p>方法二： 打开终端，执行<code>py get-pip.py</code></p>
+<p>安装模块: <code>pip install module-name</code> 例如： <code>pip install pyelftools</code></p>
+<ul>
+<li>juypter</li>
+<li>pillow</li>
+<li>requests</li>
+<li>pyinstaller</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 参数解释： F只产生一个exe，w是不使用控制台,i是图标</span><br>pyinstaller  -i xxx.icon -Fw demo.py<br></code></pre></td></tr></table></figure>
+
+<h1 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h1><p>Q: 指定版本运行脚本？<br>A: <code>py -3.7 a.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-comment">#</span><br><span class="hljs-keyword">import</span> PySimpleGUI <span class="hljs-keyword">as</span> sg<br>layout = [[sg.Text(<span class="hljs-string">&#x27;Your typed chars appear here:&#x27;</span>), sg.Text(size=(<span class="hljs-number">15</span>,<span class="hljs-number">1</span>), key=<span class="hljs-string">&#x27;-OUTPUT-&#x27;</span>)],<br>          [sg.Input(key=<span class="hljs-string">&#x27;-IN-&#x27;</span>)],<br>          [sg.Button(<span class="hljs-string">&#x27;Show&#x27;</span>), sg.Button(<span class="hljs-string">&#x27;Exit&#x27;</span>)]]<br><br>window = sg.Window(<span class="hljs-string">&#x27;Test&#x27;</span>, layout)<br><br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:  <span class="hljs-comment"># Event Loop</span><br>    event, values = window.read()<br>    <span class="hljs-built_in">print</span>(event, values)<br>    <span class="hljs-keyword">if</span> event <span class="hljs-keyword">in</span>  (<span class="hljs-literal">None</span>, <span class="hljs-string">&#x27;Exit&#x27;</span>):<br>        <span class="hljs-keyword">break</span><br>    <span class="hljs-keyword">if</span> event == <span class="hljs-string">&#x27;Show&#x27;</span>:<br>        <span class="hljs-comment"># Update the &quot;output&quot; text element to be the value of &quot;input&quot; element</span><br>        window[<span class="hljs-string">&#x27;-OUTPUT-&#x27;</span>].update(values[<span class="hljs-string">&#x27;-IN-&#x27;</span>])<br><br>window.close()<br><span class="hljs-comment">#</span><br><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">import</span> re<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">batch_rename_files</span>(<span class="hljs-params">directory, regex_pattern, new_text</span>):<br>    <span class="hljs-keyword">for</span> filename <span class="hljs-keyword">in</span> os.listdir(directory):<br>        <span class="hljs-keyword">if</span> re.<span class="hljs-keyword">match</span>(regex_pattern, filename):<br>            new_filename = re.sub(regex_pattern, new_text, filename)<br>            os.rename(os.path.join(directory, filename), os.path.join(directory, new_filename))<br><br><span class="hljs-comment"># 指定目录和正则表达式</span><br>directory = <span class="hljs-string">&quot;D:/aaaa&quot;</span><br>regex_pattern = <span class="hljs-string">r&#x27;FPGA_240109b(.*)&#x27;</span><br>new_text = <span class="hljs-string">r&#x27;FPGA_240109(-3_6)\1&#x27;</span>   <span class="hljs-comment">#\1指保留其他部分不变</span><br><br><span class="hljs-comment"># 执行批量重命名</span><br>batch_rename_files(directory, regex_pattern, new_text)<br><br><br><span class="hljs-comment"># 生成指定的bin</span><br><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">import</span> binascii<br><span class="hljs-keyword">import</span> random<br><br>file_path = <span class="hljs-string">&#x27;example.bin&#x27;</span><br><span class="hljs-comment"># file_size = 0x3150</span><br>file_size = <span class="hljs-number">1024</span>*<span class="hljs-number">8</span><br><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(file_path, <span class="hljs-string">&#x27;wb&#x27;</span>) <span class="hljs-keyword">as</span> f:<br>    remaining_bytes = file_size<br>    buffer_size = <span class="hljs-number">1024</span>  <span class="hljs-comment"># 每次写入的字节数</span><br>    <span class="hljs-keyword">while</span> remaining_bytes &gt; <span class="hljs-number">0</span>:<br>        buffer = <span class="hljs-built_in">bytearray</span>(random.getrandbits(<span class="hljs-number">8</span>) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">min</span>(buffer_size, remaining_bytes)))<br>        f.write(buffer)<br>        remaining_bytes -= buffer_size<br><br><span class="hljs-comment"># 音量</span><br><span class="hljs-keyword">import</span> PyAutoGUI<br><span class="hljs-keyword">import</span> time<br><br><span class="hljs-keyword">while</span> <span class="hljs-number">1</span>:<br>    pyautogui.press(<span class="hljs-string">&#x27;volumeup&#x27;</span>)    <span class="hljs-comment">#调大音量</span><br>    time.sleep(<span class="hljs-number">5</span>)<br>    pyautogui.press(<span class="hljs-string">&#x27;volumedown&#x27;</span>) <span class="hljs-comment">#调小音量</span><br>    time.sleep(<span class="hljs-number">5</span>)<br><span class="hljs-comment">#pyautogui.press(&#x27;volumemute&#x27;) #静音</span><br><br><span class="hljs-comment"># 图形化</span><br><span class="hljs-keyword">import</span> PySimpleGUI <span class="hljs-keyword">as</span> sg<br><span class="hljs-comment"># sg.popup(&#x27;demo ok&#x27;)</span><br><span class="hljs-comment"># sg.popup_ok_cancel(&#x27;PopupOKCancel&#x27;)</span><br><span class="hljs-comment"># sg.popup_error(&#x27;PopupError&#x27;)  # Shows red error button</span><br><span class="hljs-comment"># sg.popup_timed(&#x27;PopupTimed&#x27;)  # Automatically closes</span><br><span class="hljs-comment"># 例子：</span><br>text = sg.popup_get_file(<span class="hljs-string">&#x27;Please enter a file name&#x27;</span>)<br><br><br><span class="hljs-keyword">import</span> PySimpleGUI <span class="hljs-keyword">as</span> sg<br><span class="hljs-keyword">import</span> json<br>sg.set_options(font=(<span class="hljs-string">&#x27;Arial Bold&#x27;</span>, <span class="hljs-number">16</span>))<br>layout = [<br>   [sg.Text(<span class="hljs-string">&#x27;Settings&#x27;</span>, justification=<span class="hljs-string">&#x27;left&#x27;</span>)],<br>   [sg.Text(<span class="hljs-string">&#x27;User name&#x27;</span>, size=(<span class="hljs-number">10</span>, <span class="hljs-number">1</span>), expand_x=<span class="hljs-literal">True</span>),<br>   sg.Input(key=<span class="hljs-string">&#x27;-USER-&#x27;</span>)],<br>   [sg.Text(<span class="hljs-string">&#x27;email ID&#x27;</span>, size=(<span class="hljs-number">10</span>, <span class="hljs-number">1</span>), expand_x=<span class="hljs-literal">True</span>),<br>   sg.Input(key=<span class="hljs-string">&#x27;-ID-&#x27;</span>)],<br>   [sg.Text(<span class="hljs-string">&#x27;Role&#x27;</span>, size=(<span class="hljs-number">10</span>, <span class="hljs-number">1</span>), expand_x=<span class="hljs-literal">True</span>),<br>   sg.Input(key=<span class="hljs-string">&#x27;-ROLE-&#x27;</span>)],<br>   [sg.Button(<span class="hljs-string">&quot;LOAD&quot;</span>), sg.Button(<span class="hljs-string">&#x27;SAVE&#x27;</span>), sg.Button(<span class="hljs-string">&#x27;Exit&#x27;</span>)]<br>]<br>window = sg.Window(<span class="hljs-string">&#x27;User Settings Demo&#x27;</span>, layout, size=(<span class="hljs-number">715</span>, <span class="hljs-number">200</span>))<br><span class="hljs-comment"># Event Loop</span><br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>   event, values = window.read()<br>   <span class="hljs-keyword">if</span> event <span class="hljs-keyword">in</span> (sg.WIN_CLOSED, <span class="hljs-string">&#x27;Exit&#x27;</span>):<br>      <span class="hljs-keyword">break</span><br>   <span class="hljs-keyword">if</span> event == <span class="hljs-string">&#x27;LOAD&#x27;</span>:<br>      f = <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;settings.txt&quot;</span>, <span class="hljs-string">&#x27;r&#x27;</span>)<br>      settings = json.load(f)<br>      window[<span class="hljs-string">&#x27;-USER-&#x27;</span>].update(value=settings[<span class="hljs-string">&#x27;-USER-&#x27;</span>])<br>      window[<span class="hljs-string">&#x27;-ID-&#x27;</span>].update(value=settings[<span class="hljs-string">&#x27;-ID-&#x27;</span>])<br>      window[<span class="hljs-string">&#x27;-ROLE-&#x27;</span>].update(value=settings[<span class="hljs-string">&#x27;-ROLE-&#x27;</span>])<br>   <span class="hljs-keyword">if</span> event == <span class="hljs-string">&#x27;SAVE&#x27;</span>:<br>      settings = &#123;<span class="hljs-string">&#x27;-USER-&#x27;</span>: values[<span class="hljs-string">&#x27;-USER-&#x27;</span>],<br>      <span class="hljs-string">&#x27;-ID-&#x27;</span>: values[<span class="hljs-string">&#x27;-ID-&#x27;</span>],<br>      <span class="hljs-string">&#x27;-ROLE-&#x27;</span>: values[<span class="hljs-string">&#x27;-ROLE-&#x27;</span>]&#125;<br>      f = <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;settings.txt&quot;</span>, <span class="hljs-string">&#x27;w&#x27;</span>)<br>      json.dump(settings, f)<br>      f.close()<br>window.close()<br><br><br><br><br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">from</span> matplotlib.backends.backend_tkagg <span class="hljs-keyword">import</span> FigureCanvasTkAgg<br><span class="hljs-keyword">import</span> PySimpleGUI <span class="hljs-keyword">as</span> sg<br><span class="hljs-keyword">import</span> matplotlib<br>matplotlib.use(<span class="hljs-string">&#x27;TkAgg&#x27;</span>)<br>fig = matplotlib.figure.Figure(figsize=(<span class="hljs-number">5</span>, <span class="hljs-number">4</span>), dpi=<span class="hljs-number">100</span>)<br>t = np.arange(<span class="hljs-number">0</span>, <span class="hljs-number">3</span>, <span class="hljs-number">.01</span>)<br>fig.add_subplot(<span class="hljs-number">111</span>).plot(t, <span class="hljs-number">2</span> * np.sin(<span class="hljs-number">2</span> * np.pi * t))<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">draw_figure</span>(<span class="hljs-params">canvas, figure</span>):<br>   tkcanvas = FigureCanvasTkAgg(figure, canvas)<br>   tkcanvas.draw()<br>   tkcanvas.get_tk_widget().pack(side=<span class="hljs-string">&#x27;top&#x27;</span>, fill=<span class="hljs-string">&#x27;both&#x27;</span>, expand=<span class="hljs-number">1</span>)<br>   <span class="hljs-keyword">return</span> tkcanvas<br>layout = [[sg.Text(<span class="hljs-string">&#x27;Plot test&#x27;</span>)],<br>   [sg.Canvas(key=<span class="hljs-string">&#x27;-CANVAS-&#x27;</span>)],<br>   [sg.Button(<span class="hljs-string">&#x27;Ok&#x27;</span>)]]<br>window = sg.Window(<span class="hljs-string">&#x27;Matplotlib In PySimpleGUI&#x27;</span>, layout, size=(<span class="hljs-number">715</span>, <span class="hljs-number">500</span>), finalize=<span class="hljs-literal">True</span>, element_justification=<span class="hljs-string">&#x27;center&#x27;</span>, font=<span class="hljs-string">&#x27;Helvetica 18&#x27;</span>)<br><br><span class="hljs-comment"># add the plot to the window</span><br>tkcanvas = draw_figure(window[<span class="hljs-string">&#x27;-CANVAS-&#x27;</span>].TKCanvas, fig)<br>event, values = window.read()<br>window.close()<br><br><br><span class="hljs-keyword">import</span> PySimpleGUI <span class="hljs-keyword">as</span> psg<br>psg.set_options(font=(<span class="hljs-string">&#x27;Arial Bold&#x27;</span>, <span class="hljs-number">16</span>))<br>layout = [<br>   [psg.Text(<span class="hljs-string">&#x27;Enter a num: &#x27;</span>), psg.Input(key=<span class="hljs-string">&#x27;-FIRST-&#x27;</span>)],<br>   [psg.Text(<span class="hljs-string">&#x27;Enter a num: &#x27;</span>), psg.Input(key=<span class="hljs-string">&#x27;-SECOND-&#x27;</span>)],<br>   [psg.Text(<span class="hljs-string">&#x27;Result : &#x27;</span>), psg.Text(key=<span class="hljs-string">&#x27;-OUT-&#x27;</span>)],<br>   [psg.Button(<span class="hljs-string">&quot;Add&quot;</span>), psg.Button(<span class="hljs-string">&quot;Sub&quot;</span>), psg.Exit()],<br>]<br>window = psg.Window(<span class="hljs-string">&#x27;Calculato1r&#x27;</span>, layout, size=(<span class="hljs-number">715</span>, <span class="hljs-number">180</span>))<br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>   event, values = window.read()<br>   <span class="hljs-built_in">print</span>(event, values)<br>   <span class="hljs-keyword">if</span> event == <span class="hljs-string">&quot;Add&quot;</span>:<br>      result = <span class="hljs-built_in">int</span>(values[<span class="hljs-string">&#x27;-FIRST-&#x27;</span>]) + <span class="hljs-built_in">int</span>(values[<span class="hljs-string">&#x27;-SECOND-&#x27;</span>])<br>   <span class="hljs-keyword">if</span> event == <span class="hljs-string">&quot;Sub&quot;</span>:<br>      result = <span class="hljs-built_in">int</span>(values[<span class="hljs-string">&#x27;-FIRST-&#x27;</span>]) - <span class="hljs-built_in">int</span>(values[<span class="hljs-string">&#x27;-SECOND-&#x27;</span>])<br>   window[<span class="hljs-string">&#x27;-OUT-&#x27;</span>].update(result)<br>   <span class="hljs-keyword">if</span> event == psg.WIN_CLOSED <span class="hljs-keyword">or</span> event == <span class="hljs-string">&#x27;Exit&#x27;</span>:<br>      <span class="hljs-keyword">break</span><br>window.close()<br><br><span class="hljs-keyword">import</span> PySimpleGUI <span class="hljs-keyword">as</span> sg<br><br><span class="hljs-comment"># 定义布局</span><br>layout = [[sg.Text(<span class="hljs-string">&#x27;Hello PySimpleGUI!&#x27;</span>)],<br>          [sg.Button(<span class="hljs-string">&#x27;OK&#x27;</span>)],<br>          [sg.Button(<span class="hljs-string">&#x27;continue&#x27;</span>)]]<br><br><span class="hljs-comment"># 创建窗口</span><br>window = sg.Window(<span class="hljs-string">&#x27;aa&#x27;</span>, layout,icon = <span class="hljs-string">&#x27;edit_icon.ico&#x27;</span>)<br><br><span class="hljs-comment"># 事件循环</span><br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    event, values = window.read()<br><br>    <span class="hljs-keyword">if</span> event == sg.WINDOW_CLOSED <span class="hljs-keyword">or</span> event == <span class="hljs-string">&#x27;OK&#x27;</span>:<br>        <span class="hljs-keyword">break</span><br>    <span class="hljs-keyword">elif</span> event == <span class="hljs-string">&#x27;continue&#x27;</span>:<br>        sg.popup(<span class="hljs-string">&quot;aaaaaaaaaaaaaa&quot;</span>)<br><br><span class="hljs-comment"># 关闭窗口</span><br>window.close()<br><br><span class="hljs-keyword">import</span> PySimpleGUI <span class="hljs-keyword">as</span> sg<br><span class="hljs-keyword">import</span> os<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">main</span>():<br>    <span class="hljs-comment"># 定义历史记录文件路径</span><br>    history_file = <span class="hljs-string">&#x27;history.txt&#x27;</span><br><br>    <span class="hljs-comment"># 创建布局</span><br>    layout = [<br>        [sg.Text(<span class="hljs-string">&#x27;File 1:&#x27;</span>), sg.InputText(key=<span class="hljs-string">&#x27;file1&#x27;</span>), sg.FileBrowse(initial_folder=get_last_path(history_file, <span class="hljs-number">0</span>))],<br>        [sg.Text(<span class="hljs-string">&#x27;File 2:&#x27;</span>), sg.InputText(key=<span class="hljs-string">&#x27;file2&#x27;</span>), sg.FileBrowse(initial_folder=get_last_path(history_file, <span class="hljs-number">1</span>))],<br>        [sg.Text(<span class="hljs-string">&#x27;File 3:&#x27;</span>), sg.InputText(key=<span class="hljs-string">&#x27;file3&#x27;</span>), sg.FileBrowse(initial_folder=get_last_path(history_file, <span class="hljs-number">2</span>))],<br>        [sg.Text(<span class="hljs-string">&#x27;File 4:&#x27;</span>), sg.InputText(key=<span class="hljs-string">&#x27;file4&#x27;</span>), sg.FileBrowse(initial_folder=get_last_path(history_file, <span class="hljs-number">3</span>))],<br>        [sg.Button(<span class="hljs-string">&#x27;OK&#x27;</span>)],<br>    ]<br><br>    <span class="hljs-comment"># 创建窗口</span><br>    window = sg.Window(<span class="hljs-string">&#x27;File Selector&#x27;</span>, layout)<br><br>    <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>        event, values = window.read()<br><br>        <span class="hljs-keyword">if</span> event == sg.WINDOW_CLOSED:<br>            <span class="hljs-keyword">break</span><br><br>        <span class="hljs-keyword">if</span> event == <span class="hljs-string">&#x27;OK&#x27;</span>:<br>            <span class="hljs-comment"># 保存历史记录</span><br>            save_history(history_file, values[<span class="hljs-string">&#x27;file1&#x27;</span>], values[<span class="hljs-string">&#x27;file2&#x27;</span>], values[<span class="hljs-string">&#x27;file3&#x27;</span>], values[<span class="hljs-string">&#x27;file4&#x27;</span>])<br><br>            <span class="hljs-comment"># 弹出消息框</span><br>            sg.popup(<span class="hljs-string">&#x27;Hello World!&#x27;</span>)<br>            <span class="hljs-keyword">break</span><br><br>    window.close()<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_last_path</span>(<span class="hljs-params">history_file, index</span>):<br>    <span class="hljs-comment"># 从历史记录文件中获取上次保存的路径</span><br>    <span class="hljs-keyword">if</span> os.path.exists(history_file):<br>        <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(history_file, <span class="hljs-string">&#x27;r&#x27;</span>) <span class="hljs-keyword">as</span> file:<br>            history = file.readlines()<br>            <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(history) &gt; index:<br>                <span class="hljs-keyword">return</span> history[index].strip()<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&#x27;</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">save_history</span>(<span class="hljs-params">history_file, *paths</span>):<br>    <span class="hljs-comment"># 将当前选择的路径保存到历史记录文件中</span><br>    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(history_file, <span class="hljs-string">&#x27;w&#x27;</span>) <span class="hljs-keyword">as</span> file:<br>        <span class="hljs-keyword">for</span> path <span class="hljs-keyword">in</span> paths:<br>            file.write(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;path&#125;</span>\n&#x27;</span>)<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    main()<br><br><br><span class="hljs-keyword">import</span> PySimpleGUI <span class="hljs-keyword">as</span> sg<br><br>sg.theme(<span class="hljs-string">&#x27;Default1&#x27;</span>)   <span class="hljs-comment"># 设置当前主题</span><br><span class="hljs-comment"># 界面布局，将会按照列表顺序从上往下依次排列，二级列表中，从左往右依此排列</span><br>layout = [  [sg.Text(<span class="hljs-string">&#x27;Some text on Row 1&#x27;</span>)],<br>            [sg.Text(<span class="hljs-string">&#x27;Enter something on Row 2&#x27;</span>), sg.InputText()],<br>            [sg.Button(<span class="hljs-string">&#x27;Ok&#x27;</span>), sg.Button(<span class="hljs-string">&#x27;Cancel&#x27;</span>)] ]<br><br><span class="hljs-comment"># 创造窗口</span><br>window = sg.Window(<span class="hljs-string">&#x27;Window Title&#x27;</span>, layout)<br><span class="hljs-comment"># 事件循环并获取输入值</span><br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    event, values = window.read()<br>    <span class="hljs-keyword">if</span> event <span class="hljs-keyword">in</span> (<span class="hljs-literal">None</span>, <span class="hljs-string">&#x27;Cancel&#x27;</span>):   <span class="hljs-comment"># 如果用户关闭窗口或点击`Cancel`</span><br>        <span class="hljs-keyword">break</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;You entered &#x27;</span>, values[<span class="hljs-number">0</span>])<br><br>window.close()<br><br><br><span class="hljs-keyword">import</span> PySimpleGUI <span class="hljs-keyword">as</span> sg<br><br>layout = [[sg.Text(<span class="hljs-string">&#x27;My one-shot window.&#x27;</span>)],<br>                 [sg.InputText()],<br>                 [sg.Submit(), sg.Cancel()]]<br><br>window = sg.Window(<span class="hljs-string">&#x27;Window Title&#x27;</span>, layout)<br><br>event, values = window.read()<br><br>window.close()<br>text_input = values[<span class="hljs-number">0</span>]<br>sg.popup(<span class="hljs-string">&#x27;You entered&#x27;</span>, text_input) <span class="hljs-comment"># 弹出窗口</span><br><br><br><br><span class="hljs-keyword">import</span> PySimpleGUI <span class="hljs-keyword">as</span> sg<br>layout = [[sg.Text(<span class="hljs-string">&#x27;Your typed chars appear here:&#x27;</span>), sg.Text(size=(<span class="hljs-number">15</span>,<span class="hljs-number">1</span>), key=<span class="hljs-string">&#x27;-OUTPUT-&#x27;</span>)],<br>          [sg.Input(key=<span class="hljs-string">&#x27;-IN-&#x27;</span>)],<br>          [sg.Button(<span class="hljs-string">&#x27;Show&#x27;</span>), sg.Button(<span class="hljs-string">&#x27;Exit&#x27;</span>)]]<br><br>window = sg.Window(<span class="hljs-string">&#x27;Pattern 2B&#x27;</span>, layout)<br><br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:  <span class="hljs-comment"># Event Loop</span><br>    event, values = window.read()<br>    <span class="hljs-built_in">print</span>(event, values)<br>    <span class="hljs-keyword">if</span> event <span class="hljs-keyword">in</span>  (<span class="hljs-literal">None</span>, <span class="hljs-string">&#x27;Exit&#x27;</span>):<br>        <span class="hljs-keyword">break</span><br>    <span class="hljs-keyword">if</span> event == <span class="hljs-string">&#x27;Show&#x27;</span>:<br>        <span class="hljs-comment"># Update the &quot;output&quot; text element to be the value of &quot;input&quot; element</span><br>        window[<span class="hljs-string">&#x27;-OUTPUT-&#x27;</span>].update(values[<span class="hljs-string">&#x27;-IN-&#x27;</span>])<br><br>window.close()<br><br><span class="hljs-keyword">import</span> PySimpleGUI <span class="hljs-keyword">as</span> sg<br><br>layout = [[sg.Text(<span class="hljs-string">&#x27;A custom progress meter&#x27;</span>)],<br>          [sg.ProgressBar(<span class="hljs-number">1000</span>, orientation=<span class="hljs-string">&#x27;h&#x27;</span>, size=(<span class="hljs-number">20</span>, <span class="hljs-number">20</span>), key=<span class="hljs-string">&#x27;progressbar&#x27;</span>)],<br>          [sg.Cancel()]]<br><br>window = sg.Window(<span class="hljs-string">&#x27;Custom Progress Meter&#x27;</span>, layout)<br>progress_bar = window[<span class="hljs-string">&#x27;progressbar&#x27;</span>]<br><span class="hljs-comment"># loop that would normally do something useful</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1000</span>):<br>    <span class="hljs-comment"># check to see if the cancel button was clicked and exit loop if clicked</span><br>    event, values = window.read(timeout=<span class="hljs-number">10</span>)<br>    <span class="hljs-keyword">if</span> event == <span class="hljs-string">&#x27;Cancel&#x27;</span>  <span class="hljs-keyword">or</span> event <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:<br>        <span class="hljs-keyword">break</span><br>  <span class="hljs-comment"># update bar with loop value +1 so that bar eventually reaches the maximum</span><br>    progress_bar.UpdateBar(i + <span class="hljs-number">1</span>)<br><span class="hljs-comment"># done with loop... need to destroy the window as it&#x27;s still open</span><br>window.close()<br><br><span class="hljs-keyword">import</span> PySimpleGUI <span class="hljs-keyword">as</span> sg<br>sg.theme(<span class="hljs-string">&#x27;Default1&#x27;</span>)<br>text = sg.popup_get_file(<span class="hljs-string">&#x27;Please enter a file name&#x27;</span>,no_window=<span class="hljs-literal">False</span>)<br><span class="hljs-built_in">print</span>(text)<br><br><span class="hljs-keyword">import</span> PySimpleGUI <span class="hljs-keyword">as</span> sg<br>theme_name_list = sg.theme_list()<br>sg.theme_previewer()<br>sg.theme(<span class="hljs-string">&#x27;Default1&#x27;</span>)<br>layout = [[sg.Text(<span class="hljs-string">&#x27;Theme Browser&#x27;</span>)],<br>          [sg.Text(<span class="hljs-string">&#x27;Click a Theme color to see demo window&#x27;</span>)],<br>          [sg.Listbox(values=sg.theme_list(), size=(<span class="hljs-number">20</span>, <span class="hljs-number">12</span>), key=<span class="hljs-string">&#x27;-LIST-&#x27;</span>, enable_events=<span class="hljs-literal">True</span>)],<br>          [sg.Button(<span class="hljs-string">&#x27;Exit&#x27;</span>)]]<br>window = sg.Window(<span class="hljs-string">&#x27;Theme Browser&#x27;</span>, layout)<br><br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:  <span class="hljs-comment"># Event Loop</span><br>    event, values = window.read()<br>    <span class="hljs-keyword">if</span> event <span class="hljs-keyword">in</span> (<span class="hljs-literal">None</span>, <span class="hljs-string">&#x27;Exit&#x27;</span>):<br>        <span class="hljs-keyword">break</span><br>    sg.theme(values[<span class="hljs-string">&#x27;-LIST-&#x27;</span>][<span class="hljs-number">0</span>])<br>    sg.popup_get_text(<span class="hljs-string">&#x27;This is &#123;&#125;&#x27;</span>.<span class="hljs-built_in">format</span>(values[<span class="hljs-string">&#x27;-LIST-&#x27;</span>][<span class="hljs-number">0</span>]))<br><br>window.close()<br><br><br><br><span class="hljs-keyword">import</span> PySimpleGUI <span class="hljs-keyword">as</span> psg<br>text = psg.popup_get_text(<span class="hljs-string">&#x27;Enter your name&#x27;</span>, title=<span class="hljs-string">&quot;Textbox&quot;</span>)<br><span class="hljs-built_in">print</span> (<span class="hljs-string">&quot;You entered: &quot;</span>, text)<br>file=psg.popup_get_file(<span class="hljs-string">&#x27;Select a file&#x27;</span>,  title=<span class="hljs-string">&quot;File selector&quot;</span>)<br><span class="hljs-built_in">print</span> (<span class="hljs-string">&quot;File selected&quot;</span>, file)<br>folder=psg.popup_get_folder(<span class="hljs-string">&#x27;Get folder&#x27;</span>, title=<span class="hljs-string">&quot;Folder selector&quot;</span>)<br><span class="hljs-built_in">print</span> (<span class="hljs-string">&quot;Folder selected&quot;</span>,folder)<br>ch = psg.popup_yes_no(<span class="hljs-string">&quot;Do you want to Continue?&quot;</span>,  title=<span class="hljs-string">&quot;YesNo&quot;</span>)<br><span class="hljs-built_in">print</span> (<span class="hljs-string">&quot;You clicked&quot;</span>, ch)<br>ch = psg.popup_ok_cancel(<span class="hljs-string">&quot;Press Ok to proceed&quot;</span>, <span class="hljs-string">&quot;Press cancel to stop&quot;</span>,  title=<span class="hljs-string">&quot;OkCancel&quot;</span>)<br><span class="hljs-keyword">if</span> ch==<span class="hljs-string">&quot;OK&quot;</span>:<br>   <span class="hljs-built_in">print</span> (<span class="hljs-string">&quot;You pressed OK&quot;</span>)<br><span class="hljs-keyword">if</span> ch==<span class="hljs-string">&quot;Cancel&quot;</span>:<br>   <span class="hljs-built_in">print</span> (<span class="hljs-string">&quot;You pressed Cancel&quot;</span>)<br>psg.popup_no_buttons(<span class="hljs-string">&#x27;You pressed&#x27;</span>, ch, non_blocking=<span class="hljs-literal">True</span>)<br>psg.popup_auto_close(<span class="hljs-string">&#x27;This window will Autoclose&#x27;</span>)<br><br><br><br><span class="hljs-keyword">import</span> PySimpleGUI <span class="hljs-keyword">as</span> psg<br>layout = [<br>   [psg.Text(<span class="hljs-string">&#x27;Name &#x27;</span>), psg.Input()],<br>   [psg.Text(<span class="hljs-string">&#x27;Address &#x27;</span>), psg.Input()],<br>   [psg.Text(<span class="hljs-string">&#x27;Email ID &#x27;</span>), psg.Input()],<br>   [psg.OK(), psg.Exit()]<br>]<br>window = psg.Window(<span class="hljs-string">&#x27;Form&#x27;</span>, layout)<br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>   event, values = window.read()<br>   <span class="hljs-keyword">if</span> event == psg.WIN_CLOSED <span class="hljs-keyword">or</span> event == <span class="hljs-string">&#x27;Exit&#x27;</span>:<br>      <span class="hljs-keyword">break</span><br>   <span class="hljs-built_in">print</span> (event, values)<br>window.close()<br><br><span class="hljs-keyword">import</span> PySimpleGUI <span class="hljs-keyword">as</span> psg<br>psg.set_options(font=(<span class="hljs-string">&#x27;Arial Bold&#x27;</span>, <span class="hljs-number">16</span>))<br>layout = [<br>   [psg.Text(<span class="hljs-string">&#x27;Name &#x27;</span>, size=(<span class="hljs-number">15</span>, <span class="hljs-number">1</span>)),<br>   psg.Input(key=<span class="hljs-string">&#x27;-NM-&#x27;</span>, expand_x=<span class="hljs-literal">True</span>)],<br>   [psg.Text(<span class="hljs-string">&#x27;Address &#x27;</span>, size=(<span class="hljs-number">15</span>, <span class="hljs-number">1</span>)),<br>   psg.Input(key=<span class="hljs-string">&#x27;-AD-&#x27;</span>, expand_x=<span class="hljs-literal">True</span>)],<br>   [psg.Text(<span class="hljs-string">&#x27;Email ID &#x27;</span>, size=(<span class="hljs-number">15</span>, <span class="hljs-number">1</span>)),<br>   psg.Input(key=<span class="hljs-string">&#x27;-ID-&#x27;</span>, expand_x=<span class="hljs-literal">True</span>)],<br>   [psg.Text(<span class="hljs-string">&#x27;You Entered &#x27;</span>), psg.Text(key=<span class="hljs-string">&#x27;-OUT-&#x27;</span>)],<br>   [psg.OK(), psg.Exit()],<br>]<br>window = psg.Window(<span class="hljs-string">&#x27;Form&#x27;</span>, layout, size=(<span class="hljs-number">715</span>, <span class="hljs-number">200</span>))<br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>   event, values = window.read()<br>   <span class="hljs-built_in">print</span>(event, values)<br>   out = values[<span class="hljs-string">&#x27;-NM-&#x27;</span>] + <span class="hljs-string">&#x27; &#x27;</span> + values[<span class="hljs-string">&#x27;-AD-&#x27;</span>] + <span class="hljs-string">&#x27; &#x27;</span> + values[<span class="hljs-string">&#x27;-ID-&#x27;</span>]<br>   window[<span class="hljs-string">&#x27;-OUT-&#x27;</span>].update(out)<br>   <span class="hljs-keyword">if</span> event == psg.WIN_CLOSED <span class="hljs-keyword">or</span> event == <span class="hljs-string">&#x27;Exit&#x27;</span>:<br>      <span class="hljs-keyword">break</span><br>window.close()<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="FTDI-module"><a href="#FTDI-module" class="headerlink" title="FTDI module"></a>FTDI module</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> ft4222<br><span class="hljs-keyword">import</span> ft4222.I2CMaster<br><br><br><span class="hljs-comment"># 需要在命令行使用以下命令，安装库</span><br><span class="hljs-comment"># pip install ft4222</span><br><br><span class="hljs-comment"># list devices</span><br>nbDev = ft4222.createDeviceInfoList()<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(nbDev):<br>    <span class="hljs-built_in">print</span>(ft4222.getDeviceInfoDetail(i, <span class="hljs-literal">False</span>))<br></code></pre></td></tr></table></figure>
+
+<h2 id="生成音频"><a href="#生成音频" class="headerlink" title="生成音频"></a>生成音频</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-comment"># wav 250</span><br><span class="hljs-keyword">import</span> wave<br><span class="hljs-keyword">import</span> math<br><span class="hljs-keyword">import</span> array<br><br><span class="hljs-comment"># 音频参数</span><br>sample_rate = <span class="hljs-number">44100</span>  <span class="hljs-comment"># 采样频率</span><br>duration = <span class="hljs-number">60</span>*<span class="hljs-number">1</span>  <span class="hljs-comment"># 音频时长（秒）</span><br><br><span class="hljs-comment"># 创建一个新的WAV文件</span><br>output_file = wave.<span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;output.wav&#x27;</span>, <span class="hljs-string">&#x27;w&#x27;</span>)<br>output_file.setnchannels(<span class="hljs-number">1</span>)  <span class="hljs-comment"># 单声道</span><br>output_file.setsampwidth(<span class="hljs-number">2</span>)  <span class="hljs-comment"># 2字节，16位</span><br>output_file.setframerate(sample_rate)<br><br><span class="hljs-comment"># 生成250Hz的音频数据</span><br>samples = array.array(<span class="hljs-string">&#x27;h&#x27;</span>, [<span class="hljs-number">0</span>] * (sample_rate * duration))<br>amplitude = <span class="hljs-number">2</span> ** <span class="hljs-number">15</span> - <span class="hljs-number">1</span>  <span class="hljs-comment"># 振幅</span><br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(samples)):<br>    t = <span class="hljs-built_in">float</span>(i) / sample_rate  <span class="hljs-comment"># 当前时间（秒）</span><br>    samples[i] = <span class="hljs-built_in">int</span>(amplitude * math.sin(<span class="hljs-number">2</span> * math.pi * <span class="hljs-number">250</span> * t))<br><br><span class="hljs-comment"># 将音频数据写入WAV文件</span><br>output_file.writeframes(samples)<br><br><span class="hljs-comment"># 关闭WAV文件</span><br>output_file.close()<br></code></pre></td></tr></table></figure>
+
+<h1 id="打包的时候使用"><a href="#打包的时候使用" class="headerlink" title="打包的时候使用:"></a>打包的时候使用:</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pyinstaller --icon=edit_icon.ico --noconsole  --onefile demo.py<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="../../../../categories/Python/" class="category-chain-item">Python</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="../../../../tags/%E7%A1%AC%E4%BB%B6%E6%A8%A1%E5%9D%97/" class="print-no-link">#硬件模块</a>
+      
+        <a href="../../../../tags/Python/" class="print-no-link">#Python</a>
+      
+        <a href="../../../../tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="print-no-link">#编程语言</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Python语言常用脚本</div>
+      <div>https://blog.zimablue.fun/2024/08/11/Python语言常用脚本/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>zimablue1996</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年8月11日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="../Linux%E5%B8%B8%E7%94%A8%E8%84%9A%E6%9C%AC/" title="Linux常用脚本">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Linux常用脚本</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="../Python%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/" title="Python语言基础教程">
+                        <span class="hidden-mobile">Python语言基础教程</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-left: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Python"
+        id="heading-a7f5f35426b927411fc9231b56382173" role="tab" data-toggle="collapse" href="#collapse-a7f5f35426b927411fc9231b56382173"
+        aria-expanded="true"
+      >
+        Python
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-a7f5f35426b927411fc9231b56382173"
+           role="tabpanel" aria-labelledby="heading-a7f5f35426b927411fc9231b56382173">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="" title="Python语言常用脚本"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">Python语言常用脚本</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="../../../../js/events.js" ></script>
+<script  src="../../../../js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="../../../../js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="../../../../js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="../../../../js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,727 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="../../../../img/fluid.png">
+  <link rel="icon" href="../../../../img/Crane_Bird.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="zimablue1996">
+  <meta name="keywords" content="生活 学习 记录">
+  
+    <meta name="description" content="计划周末整理好以下内容：   Windows 基础知识：  Windows 工作相关：  Linux 基础知识  常用软件：日常使用算一类  专业软件：分为硬件篇，软件篇，其中硬件包括 EDA 以及机械结构等。软件主要是 VSCODE 以及其他编辑器等，还有 git 等软件。注意区分  python 相关内容pyenv1234567pyenv versionpyenv installpyenv g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="草稿本">
+<meta property="og:url" content="https://blog.zimablue.fun/2024/06/13/%E8%8D%89%E7%A8%BF%E6%9C%AC/index.html">
+<meta property="og:site_name" content="思维漫步的生活学习记录">
+<meta property="og:description" content="计划周末整理好以下内容：   Windows 基础知识：  Windows 工作相关：  Linux 基础知识  常用软件：日常使用算一类  专业软件：分为硬件篇，软件篇，其中硬件包括 EDA 以及机械结构等。软件主要是 VSCODE 以及其他编辑器等，还有 git 等软件。注意区分  python 相关内容pyenv1234567pyenv versionpyenv installpyenv g">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-06-13T14:23:55.000Z">
+<meta property="article:modified_time" content="2024-08-11T12:18:01.343Z">
+<meta property="article:author" content="zimablue1996">
+<meta property="article:tag" content="零散记录">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>草稿本 - 思维漫步的生活学习记录</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="../../../../css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="../../../../css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="../../../../css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"blog.zimablue.fun","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="../../../../js/utils.js" ></script>
+  <script  src="../../../../js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="../../../../index.html">
+      <strong>思维漫步</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../../../../index.html" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../../../../archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../../../../categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../../../../tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../../../../about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('../../../../img/colour-1241879_1920.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="草稿本"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-06-13 22:23" pubdate>
+          2024年6月13日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          695 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          6 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">草稿本</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2024年8月11日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h1><p>周末整理好以下内容：</p>
+<ul>
+<li><input disabled="" type="checkbox"> Windows 基础知识：</li>
+<li><input disabled="" type="checkbox"> Windows 工作相关：</li>
+<li><input disabled="" type="checkbox"> Linux 基础知识</li>
+<li><input disabled="" type="checkbox"> 常用软件：日常使用算一类</li>
+<li><input disabled="" type="checkbox"> 专业软件：分为硬件篇，软件篇，其中硬件包括 EDA 以及机械结构等。软件主要是 VSCODE 以及其他编辑器等，还有 git 等软件。注意区分</li>
+</ul>
+<h1 id="python-相关内容"><a href="#python-相关内容" class="headerlink" title="python 相关内容"></a>python 相关内容</h1><h2 id="pyenv"><a href="#pyenv" class="headerlink" title="pyenv"></a>pyenv</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><br>pyenv version<br>pyenv install<br>pyenv global<br>pyenv versions<br><span class="hljs-comment"># 切换分支</span><br>pyenv global 3.7.0<br></code></pre></td></tr></table></figure>
+
+<h1 id="工作相关软件配置"><a href="#工作相关软件配置" class="headerlink" title="工作相关软件配置"></a>工作相关软件配置</h1><p>vscode 单独写<br>其他编辑器写一起</p>
+<h2 id="VSCODE"><a href="#VSCODE" class="headerlink" title="VSCODE"></a>VSCODE</h2><p>打开按键输入显示 <code>screencast mode</code><br><a target="_blank" rel="noopener" href="https://vscode.cdn.azure.cn/stable/6c3e3dba23e8fadc360aed75ce363ba185c49794/VSCodeUserSetup-x64-1.81.1.exe">下载链接</a></p>
+<p>卸载：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">rm</span> C:\Users\G3\.vscode-insiders<br><span class="hljs-built_in">rm</span> C:\Users\G3\AppData\Roaming\Code - Insiders<br></code></pre></td></tr></table></figure>
+
+<p>关闭缓存，避免占用磁盘空间太大,json 文件中添加<code>&quot;C_Cpp.intelliSenseCacheSize&quot;: 0,</code></p>
+<h3 id="Segger-Embedded-Studio"><a href="#Segger-Embedded-Studio" class="headerlink" title="Segger Embedded Studio"></a>Segger Embedded Studio</h3><p><code>Tools-&gt;Options-&gt;Text Editor-&gt; visual appearance</code> 修改字体渲染为“proportional” 即可。<br><code>Tools-&gt;Options-&gt;Text Editor-&gt; Formatting</code> 修改 Align Consecutive Assignments 为“yes”。</p>
+<h3 id="markdown"><a href="#markdown" class="headerlink" title="markdown"></a>markdown</h3><div STYLE="page-break-after: always;"></div> <!-- 插入换页符号 -->
+
+<p>代码添加行数</p>
+<figure class="highlight c"><figcaption><span>&#123;.numberLines startFrom</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs C"><br></code></pre></td></tr></table></figure>
+
+<pre><code class=" mermaid">sequenceDiagram
+  participant BT
+  participant Register
+  participant DSP
+  BT   -&gt;&gt; Register : bit0 = 1
+  BT  --&gt;&gt; DSP      : trigger interrupt
+
+  BT   -&gt;&gt; Register : bit1 = 1
+
+  DSP --&gt;&gt; Register : read 11,and write 11
+
+  BT --&gt;&gt; DSP      : trigger interrupt
+
+  DSP --&gt;&gt; Register : read 00,error?
+</code></pre>
+
+<h2 id="keil"><a href="#keil" class="headerlink" title="keil"></a>keil</h2><p><code>fromelf.exe --bin --output=@L.bin !L=</code></p>
+<h1 id="ToDo"><a href="#ToDo" class="headerlink" title="ToDo"></a>ToDo</h1><p>摘抄：<br>没有谁规定学完一本书后，不能够学习下一本书。<br>与其花时间分析那本是最完美的入门书，不如先直接学习，然后后面再看其他的。</p>
+<p>pyenv-win 命令列表<br>安装命令</p>
+<pre><code class="hljs">pyenv install &lt;version&gt;：安装指定版本的Python。
+pyenv uninstall &lt;version&gt;：卸载指定版本的Python。
+pyenv rehash：重新生成shims和重新加载环境变量。
+</code></pre>
+<p>版本管理命令</p>
+<pre><code class="hljs">pyenv versions：列出所有已安装的Python版本。
+pyenv version：显示当前激活的Python版本。
+pyenv global &lt;version&gt;：设置全局Python版本。
+pyenv local &lt;version&gt;：在当前目录设置局部Python版本。
+pyenv shell &lt;version&gt;：在当前shell中设置Python版本。
+pyenv which &lt;command&gt;：显示指定命令所对应的Python解释器路径。
+</code></pre>
+<p>其他命令</p>
+<pre><code class="hljs">pyenv exec &lt;command&gt;：在特定版本的Python环境中执行命令。
+pyenv virtualenv &lt;version&gt; &lt;name&gt;：创建一个新的虚拟环境。
+pyenv activate &lt;name&gt;：激活指定名称的虚拟环境。
+pyenv deactivate：停用当前虚拟环境。
+</code></pre>
+<p>注意事项</p>
+<pre><code class="hljs">在使用pyenv之前，请确保已经正确安装并配置好了Python环境。
+使用虚拟环境可以帮助您在不同项目之间隔离Python依赖。
+使用pyenv global、pyenv local和pyenv shell可以轻松管理不同版本的Python。
+</code></pre>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sh">[System.Environment]::SetEnvironmentVariable(<span class="hljs-string">&#x27;PYENV&#x27;</span>,<span class="hljs-string">&quot;C:\sw&quot;</span> + <span class="hljs-string">&quot;\.pyenv\pyenv-win\&quot;,&quot;</span>User<span class="hljs-string">&quot;)</span><br><span class="hljs-string">[System.Environment]::SetEnvironmentVariable(&#x27;PYENV_ROOT&#x27;,&quot;</span>C:\sw<span class="hljs-string">&quot; + &quot;</span>\.pyenv\pyenv-win\&quot;,<span class="hljs-string">&quot;User&quot;</span>)<br>[System.Environment]::SetEnvironmentVariable(<span class="hljs-string">&#x27;PYENV_HOME&#x27;</span>,<span class="hljs-string">&quot;C:\sw&quot;</span> + <span class="hljs-string">&quot;\.pyenv\pyenv-win\&quot;,&quot;</span>User<span class="hljs-string">&quot;)</span><br><span class="hljs-string">[System.Environment]::SetEnvironmentVariable(&#x27;path&#x27;, &quot;</span>C:\sw<span class="hljs-string">&quot; + &quot;</span>\.pyenv\pyenv-win\bin;<span class="hljs-string">&quot; + &quot;</span>C:\sw<span class="hljs-string">&quot; + &quot;</span>\.pyenv\pyenv-win\shims;<span class="hljs-string">&quot; + [System.Environment]::GetEnvironmentVariable(&#x27;path&#x27;, &quot;</span>User<span class="hljs-string">&quot;),&quot;</span>User<span class="hljs-string">&quot;)</span><br><span class="hljs-string">Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser</span><br><span class="hljs-string">Unblock-File (Join-Path <span class="hljs-variable">$env</span>:PYENV &#x27;bin/pyenv.ps1&#x27;)</span><br><span class="hljs-string">pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="hljs-string">poetry source add tsinghua https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="hljs-string">yadm工具了解一下，并且使用上。</span><br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="../../../../tags/%E9%9B%B6%E6%95%A3%E8%AE%B0%E5%BD%95/" class="print-no-link">#零散记录</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>草稿本</div>
+      <div>https://blog.zimablue.fun/2024/06/13/草稿本/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>zimablue1996</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年6月13日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="../../../08/11/%E5%81%A5%E5%BA%B7/" title="健康">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">健康</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="../Windows%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="Windows基础知识">
+                        <span class="hidden-mobile">Windows基础知识</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-left: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="../../../../js/events.js" ></script>
+<script  src="../../../../js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="../../../../js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="../../../../js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="../../../../js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
