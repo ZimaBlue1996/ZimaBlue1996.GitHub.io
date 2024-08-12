@@ -1,0 +1,25 @@
+<h1 id="markdown-转-pdf-说明"><a href="#markdown-转-pdf-说明" class="headerlink" title="markdown 转 pdf 说明"></a>markdown 转 pdf 说明</h1><p>首先安装两个软件，pandoc 和 texlive。安装完成后，使用 <code>md2pdf.bat</code> 脚本搭配 <code>eisvogel.latex</code> 模板进行从<code>.md</code>到<code>.pdf</code>的格式转化。</p>
+<p>点击下方链接进行下载：</p>
+<p><a href="https://github.com/jgm/pandoc/releases/download/3.1.12.3/pandoc-3.1.12.3-windows-x86_64.msi">pandoc</a></p>
+<p><a href="https://iso.mirrors.ustc.edu.cn/CTAN/systems/texlive/Images/texlive2024-20240312.iso">texlive-20240312</a></p>
+<p>安装完成后，通过使用 <code>md2pdf.bat</code> 脚本进行格式转化，为了方便将任意的目录下的<code>.md</code>文件转为<code>.pdf</code>，可以将 <code>md2pdf.bat</code> 文件所在的路径添加到环境变量 PATH 中。</p>
+<p>如下图所示,该路径包含<code>md2pdf.bat</code>和模板文件<code>eisvogel.latex</code>：</p>
+<p><img src="img/md2pdf_script.png" alt="path add"></p>
+<p>在任意一个包含 markdown 的路径下，打开 cmd 或 powershell，输入如下指令，然后回车即可。</p>
+<pre><code class="powershell"># 转化所有的md为pdf
+make
+# 转化xxx.md为xxx.pdf
+make xxx.pdf
+# 清除pdf
+make clean
+</code></pre>
+<p>输入完命令后，会生成同名的 pdf 文件。</p>
+<h1 id="Linux-下编译的补充说明"><a href="#Linux-下编译的补充说明" class="headerlink" title="Linux 下编译的补充说明"></a>Linux 下编译的补充说明</h1><p>如果是在 Linux 下编译,则需要安装 pandoc 软件。</p>
+<p>使用命令直接安装,如果 Linux 版本比较老,执行 makefile 的时候,可能会出现 pandoc 相关命令错误。<br>使用软件安装包直接安装，则输入命令：</p>
+<pre><code class="bash">cd xxx # 切换到安装包目录
+sudo dpkg -i pandoc-3.1.12.3-1-amd64.deb
+</code></pre>
+<p>软件安装包链接：<a href="https://github.com/jgm/pandoc/releases/download/3.1.12.3/pandoc-3.1.12.3-1-amd64.deb">pandoc</a></p>
+<p>同时还需要安装中文字体的环境：</p>
+<pre><code class="bash">sudo apt install fonts-wqy-zenhei
+</code></pre>
